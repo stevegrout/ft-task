@@ -21,3 +21,4 @@ was successfully fetched.
 - retry any failures.
 - add more information into the data returned.
 - not merge data / attributes with the same name - keep each response separate within an array.
+- inetgration tests.

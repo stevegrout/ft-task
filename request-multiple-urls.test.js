@@ -35,9 +35,18 @@ describe('request-multiple-urls', () => {
     axios.get.mockImplementationOnce(() => Promise.resolve(getResponse(1)))
       .mockImplementationOnce(() => Promise.reject({ config: { url: 'http://invalid-url' } }));
 
-    const urls = ['http://req1', 'http://req2']
+    const urls = ['http://req1', 'http://invalid-url']
 
     await expect(requestMultipleUrls(urls)).rejects.toThrowError('Request failure with url: http://invalid-url');
+  })
+
+  test('rejects with an error containing details when one of the urls returns without data', async () => {
+    axios.get.mockImplementationOnce(() => Promise.resolve(getResponse(1)))
+      .mockImplementationOnce(() => Promise.resolve('<html>Hi</html>'));
+
+    const urls = ['http://req1', 'http://invalid-url']
+
+    await expect(requestMultipleUrls(urls)).rejects.toThrowError('Invalid url supplied : http://invalid-url');
   })
 
   test('overwrites an attribute with subsequent response', async () => {

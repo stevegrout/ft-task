@@ -14,13 +14,16 @@ module.exports = async (urls) => {
   }
 
   const responses = await Promise.all(requests).catch((error) => {
-    return Promise.reject(Error(`Request failure with url: ${error.config.url}`))
+    throw Error(`Request failure with url: ${error.config.url}`)
   });
 
   let result = {}
-  for (const response of responses) {
+  responses.forEach((response, index) => {
+    if (!response.data) {
+      throw Error(`Invalid url supplied : ${urls[index]}`)
+    }
     result = { ...result, ...response.data };
-  }
+  })
   return Promise.resolve(result);
 }
 
