@@ -7,6 +7,9 @@
   "author": "Steve Grout <steven_grout@hotmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "jest": "^26.0.1"
