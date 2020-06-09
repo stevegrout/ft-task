@@ -3,13 +3,6 @@ const requestMultipleUrls = require('./request-multiple-urls');
 
 jest.mock('axios');
 
-const response1 = {
-  data: {
-    key1: 'value1',
-    key2: 'value2'
-  }
-};
-
 const getResponse = (id) => {
   return {
     data: {
