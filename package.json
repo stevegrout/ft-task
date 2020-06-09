@@ -1,0 +1,14 @@
+{
+  "name": "ft-task",
+  "version": "1.0.0",
+  "description": "technical excercise for FT",
+  "main": "index.js",
+  "repository": "git@github.com:stevegrout/ft-task.git",
+  "author": "Steve Grout <steven_grout@hotmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.2",
+    "jest": "^26.0.1"
+  }
+}
